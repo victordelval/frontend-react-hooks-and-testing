@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   appBar: {
+    backgroundColor: 'white',
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbar: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    color: 'initial'
   },
 }));
 
@@ -41,7 +43,7 @@ function Header() {
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
           <NavLink to="/">
-              Tutoriza2
+            <strong>Tutoriza<big>2</big></strong>
           </NavLink>
         </Typography>
         <nav>
