@@ -5,7 +5,8 @@ import React, {
   useEffect 
 } from 'react';
 
-import { getProfessors, getSubjects } from './api'
+import { getAllData } from './api'
+// import { getProfessors, getSubjects } from './api'
 
 export const DataContext = createContext(null);
 
@@ -22,8 +23,10 @@ export const DataProvider = ({ children }) => {
   const getData = async () => {
     setLoading(true)
     try {
-      const professors = await getProfessors()
-      const subjects = await getSubjects()
+      // const professors = await getProfessors()
+      // const subjects = await getSubjects()
+      const [professors, subjects] = await getAllData()
+      console.log("asass", professors)
       setProffesors(professors.data)
       setSubjects(subjects.data)
     } catch (err) {
