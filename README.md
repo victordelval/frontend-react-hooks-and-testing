@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Prueba técnica - GeoDB
 
-## Available Scripts
+Víctor del Val Andrés
 
-In the project directory, you can run:
+## Resumen del ejercicio
 
-### `npm start`
+### Escenario 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+El objetivo es construir una PoC para el portal web del proyecto **Tutoriza2** de la UPM.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Problemática**
 
-### `npm test`
+Una de las quejas más frecuentemente formulada por los alumnos es que el profesorado raramente les ofrece un horario de tutorías adecuado para sus necesidades formativas.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Solución**
 
-### `npm run build`
+Formato de tutorías cruzadas, en el que las tutorías de una asignatura pueden ser cubiertas por cualquier profesor que esté adscrito al área de conocimiento deL profesor que la imparte.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+En el portal web a crear los alumnos dispondría de dos opciones:
+1. Conocer los horarios de tutorías para un profesor determinado.
+2. Conocer los profesores que, sin ser los tutores de una asignatura, comparten área de conocimiento con el profesor y podrían atenderle.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Reto 1 (backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Objetivo**
 
-### `npm run eject`
+Desarrollar un backend desde el que obtener esta información para el portal web, con total libertad.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+El ​ único objetivo de este reto es que la información que se use en el portal Tutoriza2 sea leída de un lugar externo. Por ello, no es necesario realizar un almacenamiento en BD ni incluir múltiples endpoints. Puede ser tan simple como sea necesario.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Escenario**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Los horarios de tutorías son entregados por cada profesor a principio de curso y actualizados anualmente o ante causa mayor. Por tanto, se trata de una información de naturaleza estática pero que puede ser modificada.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Dentro de esta información se deberá proporcionar:
+1. Los nombres de los profesores.
+2. Sus horarios de tutorías.
+3. La dirección de su despacho.
+4. Su área de conocimiento. Las áreas de conocimiento iniciales serán:  
+    a. Lenguajes de programación.  
+    b. Arquitectura de computadores.  
+    c. Análisis de la información.
 
-## Learn More
+### Reto 2 (cliente web)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Desarrollar la primera versión de Tutoriza2. Esta debe permitir dos acciones:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Poder buscar un profesor y conocer sus horarios de tutorías.
+2. Conocer los profesores que podrían atender las tutorías de una asignatura. Recordemos que no se conoce el área de una asignatura, sino el área de conocimiento del profesor que la imparte. Por tanto, para conocer qué profesores pueden atender las tutorías de una asignatura el sistema debe derivarlo a partir del área de conocimiento del profesor que la imparte.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+La UPM te ha dado total libertad en cuanto al diseño de la interfaz, pero te ha indicado que les gustaría obtener un portal 
+* simple y minimalista 
+* se vea correctamente en dispositivos móviles (responsive)
 
-### Analyzing the Bundle Size
+### Reto 3 (sugerencia)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Implementar una única propuesta, tanto propia como de las propuestas por los alumnos:
 
-### Making a Progressive Web App
+1. A muchos estudiantes les gustaría que el sistema les indicase las horas de tutorías más próximas a la actual. Así, cuando tengan alguna hora libre imprevista pueden tener justo la información que necesitan.
+2. A muchos estudiantes les gustaría obtener indicaciones para llegar al despacho de un profesor, pues los más nuevos apenas conocen las instalaciones de la universidad.
+3. Algunos estudiantes han expresado su malestar por el trato de ciertos profesores. Por ello, creen que sería de ayuda conocer la opinión de otros alumnos sobre un profesor antes de acudir a sus tutorías.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## Desarrollo del ejercicio
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Planteamiento inicial
 
-### Deployment
+El ejercicio lo voy a resolver utilizando React, por varios motivos:
+* Tecnología de primera para contruir interfaces web
+* Interfaces móviles con React Native
+* Gran experiencia del desarrollador
+* Gran adopción en la industria
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Voy a utilizar las técnicas novedosas de React (ContextAPi y los Hooks) que tienden hacia un desarrollo más eficiente mediante componentes únicamente de tipo funcional y gestión del estado (sin componentes de tipo clase, ni Redux para gestionar el estado de la SPA).
