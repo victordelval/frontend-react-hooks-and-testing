@@ -132,3 +132,22 @@ Los datos para levantar la API REST de desarrollo:
 El servidor se inicializa con:
 * `npm run api`
 
+
+### Reto 
+
+Para el desarrollo del cliente web se van a utilizar las siguientes librerías:
+* React
+* React DOM
+* React Router DOM
+* Axios
+* Material UI
+
+La estructura del proyecto es la siguiente:
+```
+src/
+  components/          # atomic ui components
+  pages/               # main view or containers
+  utils/               # utilities and auxiliar
+  App.js               # global component
+  index.js             # init
+```
