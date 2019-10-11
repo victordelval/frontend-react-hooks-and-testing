@@ -31,24 +31,6 @@ function Home() {
               title={"By Professor"}
               body={'Mauris vitae tempor mauris, fringilla lacinia nisl. Donec sed purus ut mi dapibus fringilla sit amet in dolor.'}
             />
-            {/* <Link to="/schedules-by-professor">
-              <Card>
-                <CardHeader
-                  title={"By Professor"}
-                  titleTypographyProps={{ align: "center" }}
-                  subheaderTypographyProps={{ align: "center" }}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <ul>
-                    <Typography component="li" variant="subtitle1" align="center">
-                      Mauris vitae tempor mauris, fringilla lacinia nisl. Donec
-                      sed purus ut mi dapibus fringilla sit amet in dolor.
-                    </Typography>
-                  </ul>
-                </CardContent>
-              </Card>
-            </Link> */}
           </Grid>
           <Grid item key={"Search by subject"} xs={12} sm={6} md={6}>
             <LinkCard 
@@ -56,24 +38,6 @@ function Home() {
               title={"By Subject"}
               body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae tempor mauris, fringilla lacinia nisl.'}
             />
-            {/* <Link to="/schedules-by-subject">
-              <Card>
-                <CardHeader
-                  title={"By Subject"}
-                  titleTypographyProps={{ align: "center" }}
-                  subheaderTypographyProps={{ align: "center" }}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <ul>
-                    <Typography component="li" variant="subtitle1" align="center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Mauris vitae tempor mauris, fringilla lacinia nisl.
-                    </Typography>
-                  </ul>
-                </CardContent>
-              </Card>
-            </Link> */}
           </Grid>
         </Grid>
       </Container>
