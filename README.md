@@ -73,3 +73,62 @@ El ejercicio lo voy a resolver utilizando React, por varios motivos:
 * Gran adopción en la industria
 
 Voy a utilizar las técnicas novedosas de React (ContextAPi y los Hooks) que tienden hacia un desarrollo más eficiente mediante componentes únicamente de tipo funcional y gestión del estado (sin componentes de tipo clase, ni Redux para gestionar el estado de la SPA).
+
+
+### Reto 1
+
+Para solucionar un backend externo al cliente web, se puede resolver fácilmente de varias maneras, siendo algunas de las más sencillas `json-server` para simular una API REST y `graphql-yoga` para simular una API con GraphQL.
+
+En el supuesto de que el backend también fuera objeto de desarrollo se podría haber implementado fácilmente alguna solución completa sirviendo una API desde un servidor Node.js con Express, o un backend serverless con servicios de AWS (Lambda, DynamoDB y Amplify) o de Google (Firebase, Firestore, Cloud Functions) 
+
+Para el desarrollo del ejercicio se ha optado por implementar una API REST con `json-server`. Construido el prototipo inicial sería interesante valorar implementar la API con GraphQL debido a las ventajas que supone en un escenario de uso móvil (limitaciones de datos y cobertura)
+
+Según los requerimientos, el patrón de consultas al backend sería el siguiente:
+* Consultar el listado de profesores con su información completa (para luego poder buscar y filtrar en el cliente web, y en concreto poder saber el horario de un profesor concreto)
+* Consultar el listado de las asignaturas (cada asignatura está asociada a un profesor y por tanto se puede derivar el área de conocimiento. A partir de esto y de la consulta anterior se puede conocer los horarios de los profesores correspondientes)
+
+Se propone la siguiente estructura de datos para satisfacer los requrimientos de consulta:
+
+```json
+  "professors": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "schedules": {
+        "lunes": [
+          { "from": "10", "to": "11" }
+        ],
+        "martes": [
+          { "from": "10", "to": "11" }
+        ],
+        "miércoles": [
+          { "from": "10", "to": "11" }
+        ],
+        "jueves": [
+          { "from": "10", "to": "11" }
+        ],
+        "viernes": [
+          { "from": "10", "to": "11" }
+        ]
+      },
+      "office": "B101",
+      "area": "Lenguajes de programación"
+    }
+  ]
+
+  "subjects": [
+    {
+      "id": 1,
+      "name": "JavaScript Avanzado",
+      "professor": 2
+    }
+  ]
+
+```
+
+Los datos para levantar la API REST de desarrollo: 
+* `api/db.json`
+
+El servidor se inicializa con:
+* `npm run api`
+
