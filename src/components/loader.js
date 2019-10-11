@@ -10,11 +10,9 @@ const useStyles = makeStyles(theme => ({
 
 function Loader() {
   const classes = useStyles();
-
   return (
-    <div>
-      {/* <CircularProgress className={classes.progress} /> */}
-      <CircularProgress className={classes.progress} color="secondary" />
+    <div align="center">
+      <CircularProgress className={classes.progress} size={60} color="primary" />
     </div>
   );
 }
