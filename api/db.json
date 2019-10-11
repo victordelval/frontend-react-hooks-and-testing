@@ -1,0 +1,175 @@
+{
+  "professors": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "schedules": {
+        "lunes": [
+          { "from": "10", "to": "11" }
+        ],
+        "martes": [
+          { "from": "10", "to": "11" }
+        ],
+        "miércoles": [
+          { "from": "10", "to": "11" }
+        ],
+        "jueves": [
+          { "from": "10", "to": "11" }
+        ],
+        "viernes": [
+          { "from": "10", "to": "11" }
+        ]
+      },
+      "office": "B101",
+      "area": "Lenguajes de programación"
+    },
+    {
+      "id": 2,
+      "name": "Diana Doe",
+      "schedules": {
+        "lunes": [
+          { "from": "14", "to": "15" }
+        ],
+        "martes": [
+          { "from": "14", "to": "15" }
+        ],
+        "miércoles": [
+          { "from": "14", "to": "15" }
+        ],
+        "jueves": [
+          { "from": "14", "to": "15" }
+        ],
+        "viernes": [
+          { "from": "14", "to": "15" }
+        ]
+      },
+      "office": "B309",
+      "area": "Lenguajes de programación"
+    },
+    {
+      "id": 3,
+      "name": "Pepe López",
+      "schedules": {
+        "lunes": [
+          { "from": "17", "to": "18" }
+        ],
+        "martes": [
+          { "from": "17", "to": "18" }
+        ],
+        "miércoles": [
+          { "from": "17", "to": "18" }
+        ],
+        "jueves": [
+          { "from": "17", "to": "18" }
+        ],
+        "viernes": [
+          { "from": "17", "to": "18" }
+        ]
+      },
+      "office": "C204",
+      "area": "Arquitectura de computadores"
+    },
+    {
+      "id": 4,
+      "name": "Maria García",
+      "schedules": {
+        "lunes": [
+          { "from": "13", "to": "14" }
+        ],
+        "martes": [
+          { "from": "13", "to": "14" }
+        ],
+        "miércoles": [
+          { "from": "13", "to": "14" }
+        ],
+        "jueves": [
+          { "from": "13", "to": "14" }
+        ],
+        "viernes": [
+          { "from": "13", "to": "14" }
+        ]
+      },
+      "office": "C110",
+      "area": "Arquitectura de computadores"
+    },
+    {
+      "id": 5,
+      "name": "Juan Pérez",
+      "schedules": {
+        "lunes": [
+          { "from": "11", "to": "12" }
+        ],
+        "martes": [
+          { "from": "11", "to": "12" }
+        ],
+        "miércoles": [
+          { "from": "11", "to": "12" }
+        ],
+        "jueves": [
+          { "from": "11", "to": "12" }
+        ],
+        "viernes": [
+          { "from": "11", "to": "12" }
+        ]
+      },
+      "office": "A211",
+      "area": "Análisis de la información"
+    },
+    {
+      "id": 6,
+      "name": "Sara Gómez",
+      "schedules": {
+        "lunes": [
+          { "from": "16", "to": "17" }
+        ],
+        "martes": [
+          { "from": "16", "to": "17" }
+        ],
+        "miércoles": [
+          { "from": "16", "to": "17" }
+        ],
+        "jueves": [
+          { "from": "16", "to": "17" }
+        ],
+        "viernes": [
+          { "from": "16", "to": "17" }
+        ]
+      },
+      "office": "A213",
+      "area": "Análisis de la información"
+    }
+  ],
+
+  "subjects": [
+    {
+      "id": 1,
+      "name": "JavaScript Avanzado",
+      "professor": 2
+    },
+    {
+      "id": 2,
+      "name": "Introducción a Arduino",
+      "professors": 4
+    },
+    {
+      "id": 3,
+      "name": "Introducción a Python",
+      "professors": 1
+    },
+    {
+      "id": 4,
+      "name": "Introducción a Arduino",
+      "professors": 3
+    },
+    {
+      "id": 5,
+      "name": "SQL Avanzado",
+      "professors": 6
+    },
+    {
+      "id": 6,
+      "name": "Introducción a SQL",
+      "professors": 5
+    }
+  ]
+}
