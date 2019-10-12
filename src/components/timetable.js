@@ -63,7 +63,7 @@ function Timetable({ schedules }) {
           <TableRow>
             <TimetableHeaderCell></TimetableHeaderCell>
             {weekDays.map(day => (
-              <TimetableHeaderCell>{day.toUpperCase()}</TimetableHeaderCell>
+              <TimetableHeaderCell key={day}>{day.toUpperCase()}</TimetableHeaderCell>
             ))}
           </TableRow>
         </TableHead>
@@ -74,10 +74,10 @@ function Timetable({ schedules }) {
                 {hour}
               </TimetableRowHeaderCell>
               {weekDays.map(day => {
-                if (schedules[day].some(slot => slot.to == hour )) {
-                  return <TimetableSelectedCell></TimetableSelectedCell>
+                if (schedules[day].some(slot => slot.to === hour )) {
+                  return <TimetableSelectedCell key={`${day}-${hour}`}></TimetableSelectedCell>
                 } else {
-                  return <TableCell></TableCell>
+                  return <TableCell key={`${day}-${hour}`}></TableCell>
                 }
               })}
             </TimetableRow>

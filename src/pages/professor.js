@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Selector from '../components/selector'
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -24,7 +24,6 @@ function Professor() {
   const [selected, setSelected] = useState(null)
 
   const handleChange = e => {
-    console.log("*** change", e)
     setSelected(e.target.value)
   }
 

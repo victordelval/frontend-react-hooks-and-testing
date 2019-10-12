@@ -14,8 +14,6 @@ const useStyles = makeStyles(theme => ({
 
 function Selector({ data, selected, handleChange }) {
   const classes = useStyles();
-  console.log("****** render >> selected", selected)
-  console.log(selected ? selected.name : '')
   return (
     <div align="center">
       <FormControl variant="outlined" className={classes.formControl}>
