@@ -7,6 +7,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { useData } from '../data/data'
+import Loader from './loader'
+
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -38,15 +41,18 @@ const useStyles = makeStyles(theme => ({
 
 function Header() {
   const classes = useStyles();
+  const { loading } = useData()
   return (
     <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
           <NavLink to="/">
-            Tutoriza<big>2</big>
+            Tutoriza2
           </NavLink>
         </Typography>
         <nav>
+          {/* <Loader /> */}
+          {loading && <Loader />}
           <NavLink to="/schedules-by-professor">
             <Button color="primary" className={classes.link}>
               By Professor

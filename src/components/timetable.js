@@ -51,36 +51,37 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 700,
   },
+  slimCell: {
+    padding: '3px 24px 3px 16px'
+  }
 }));
 
 function Timetable({ schedules }) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} elevation={0}>
       <Table className={classes.table} size="small">
         <TableHead>
           <TableRow>
             <TimetableHeaderCell></TimetableHeaderCell>
             {weekDays.map(day => (
-              <TimetableHeaderCell key={day}>{day.toUpperCase()}</TimetableHeaderCell>
+              <TimetableHeaderCell key={day} align="center">{day.toUpperCase()}</TimetableHeaderCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {dayHours.map(hour => (
             <TimetableRow key={hour}>
-              <TimetableRowHeaderCell component="th" scope="row" align="right">
+              <TimetableRowHeaderCell component="th" scope="row" align="right" className={classes.slimCell}>
                 {hour}
               </TimetableRowHeaderCell>
               {weekDays.map(day => {
                 // console.log("****")
                 if (schedules[day].some(slot => slot.to === hour )) {
-                  console.log(day)
-                  console.log(hour)
-                  return <TimetableSelectedCell key={`${day}-${hour}`}></TimetableSelectedCell>
+                  return <TimetableSelectedCell key={`${day}-${hour}`} className={classes.slimCell}></TimetableSelectedCell>
                 } else {
-                  return <TableCell key={`${day}-${hour}`}></TableCell>
+                  return <TableCell key={`${day}-${hour}`} className={classes.slimCell}></TableCell>
                 }
               })}
             </TimetableRow>

@@ -4,16 +4,16 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
   progress: {
-    margin: theme.spacing(2),
+    marginRight: theme.spacing(4),
   },
 }));
 
 function Loader() {
   const classes = useStyles();
   return (
-    <div align="center">
-      <CircularProgress className={classes.progress} size={60} color="primary" />
-    </div>
+    // <div align="center">
+      <CircularProgress className={classes.progress} size={15} color="primary" thickness={5} />
+    // </div>
   );
 }
 

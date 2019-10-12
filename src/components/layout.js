@@ -4,10 +4,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import { useData } from '../utils/dataHook'
+import { useData } from '../data/data'
 import Header from './header'
 import Footer from './footer'
-import Loader from './loader'
+// import Error from './error'
+// import Loader from './loader'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100vh',
   },
   main: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
     maxWidth: '900px',
   },
@@ -30,7 +31,9 @@ function Layout({ children }) {
       <CssBaseline />
       <Header />
       <Container component="main" className={classes.main} maxWidth="sm">
-        {loading ? <Loader /> : children}
+        {/* {loading ? <Loader /> : children} */}
+        {/* {error ? <Error /> : children} */}
+        {children}
       </Container>
       <Footer />
     </div>

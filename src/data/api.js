@@ -1,6 +1,7 @@
 import axios from "axios";
 
 // True functions!!
+
 // export const getProfessors = () => axios.get(`http://localhost:3004/professors`)
 // export const getSubjects = () => axios.get(`http://localhost:3004/subjects`)
 

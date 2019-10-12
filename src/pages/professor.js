@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 
-import { useData } from '../utils/dataHook'
+import { useData } from '../data/data'
 import Timetable from '../components/timetable'
 
 const useStyles = makeStyles(theme => ({
@@ -32,24 +32,28 @@ function Professor() {
 
   return (
     <>
-      <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.lighter}>
+      <Typography variant="h6" align="center" color="textSecondary" component="p" className={classes.lighter}>
         Select the professor of the subject to see its availability
       </Typography>
       <br />
       <Container maxWidth="md" component="main">
         <Selector data={professors} selected={selected} handleChange={handleChange} />
         <br />
+        <br />
         {selected && (
           <Paper className={classes.detail}>
             <Typography variant="h5" component="h3" className={classes.lighter}>
               {selected.name}
               <span className={classes.floatRight}>
-                <Chip label={<strong>{selected.office}</strong>} />
+                <Chip label={selected.office} variant="outlined" />
                 {' '}
-                <Chip label={<strong>{selected.area}</strong>} />
+                <Chip label={selected.area} variant="outlined" />
               </span>
             </Typography>
             <br />
+
+            {/* TODO - Show professor main and support subjects */}
+            
             <Timetable schedules={selected.schedules} />
           </Paper>
         )}

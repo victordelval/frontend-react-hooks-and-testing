@@ -31,8 +31,15 @@ export const DataProvider = ({ children }) => {
     setLoading(false)
   }
 
+  const getSupportProffessors = professorId => {
+    // find professor => knowledge area
+    const professor = professors.find(p => p.id === professorId);
+    // filter professors by knowledge area
+    return professors.filter(p => p.area === professor.area)
+  }
+
   return (
-    <DataContext.Provider value={{ professors, subjects, loading, error }}>
+    <DataContext.Provider value={{ professors, subjects, loading, error, getSupportProffessors }}>
       {children}
     </DataContext.Provider>
   )

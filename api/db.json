@@ -151,27 +151,27 @@
     {
       "id": 2,
       "name": "Introducción a Arduino",
-      "professors": 4
+      "professor": 4
     },
     {
       "id": 3,
       "name": "Introducción a Python",
-      "professors": 1
+      "professor": 1
     },
     {
       "id": 4,
       "name": "Introducción a Arduino",
-      "professors": 3
+      "professor": 3
     },
     {
       "id": 5,
       "name": "SQL Avanzado",
-      "professors": 6
+      "professor": 6
     },
     {
       "id": 6,
       "name": "Introducción a SQL",
-      "professors": 5
+      "professor": 5
     }
   ]
 }

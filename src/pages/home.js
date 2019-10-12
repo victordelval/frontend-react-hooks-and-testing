@@ -17,10 +17,11 @@ function Home() {
   const classes = useStyles();
   return (
     <>
+      <br />
       <Typography component="h1" variant="h2" align="center" color="textPrimary" className={classes.lighter} gutterBottom>
         Welcome to <strong>Tutoriza2</strong>!
       </Typography>
-      <br /><br /><br />
+      <br /><br />
       <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.lighter}>
         You can search for tutorship schedules in 2 ways
       </Typography>
