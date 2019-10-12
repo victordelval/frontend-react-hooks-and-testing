@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   detail: {
     padding: theme.spacing(3, 2),
   },
+  lighter: {
+    fontWeight: 'lighter'
+  }
 }));
 
 function Professor() {
@@ -29,33 +32,25 @@ function Professor() {
 
   return (
     <>
-      <Typography variant="h5" align="center" color="textSecondary" component="p">
-        Select the professor of the subject you want the tutorship
+      <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.lighter}>
+        Select the professor of the subject to see its availability
       </Typography>
-      {/* <br /> */}
       <br />
       <Container maxWidth="md" component="main">
         <Selector data={professors} selected={selected} handleChange={handleChange} />
-        {/* <hr /> */}
         <br />
-        {/* <br /> */}
         {selected && (
           <Paper className={classes.detail}>
-            <Typography variant="h5" component="h3">
+            <Typography variant="h5" component="h3" className={classes.lighter}>
               {selected.name}
               <span className={classes.floatRight}>
-                <Chip label={selected.area} />
+                <Chip label={<strong>{selected.office}</strong>} />
                 {' '}
-                <Chip label={selected.office} />
+                <Chip label={<strong>{selected.area}</strong>} />
               </span>
             </Typography>
             <br />
-            {/* <Typography component="p">
-            </Typography> */}
-            {/* <Typography component="p"> */}
-              {/* {JSON.stringify(selected.schedules)} */}
-              <Timetable schedules={selected.schedules} />
-            {/* </Typography> */}
+            <Timetable schedules={selected.schedules} />
           </Paper>
         )}
       </Container>

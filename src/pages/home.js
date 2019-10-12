@@ -1,19 +1,27 @@
 import React from "react";
 
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 import LinkCard from '../components/linkCard'
 
+const useStyles = makeStyles(theme => ({
+  lighter: {
+    fontWeight: 'lighter'
+  }
+}));
+
 function Home() {
+  const classes = useStyles();
   return (
     <>
-      <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+      <Typography component="h1" variant="h2" align="center" color="textPrimary" className={classes.lighter} gutterBottom>
         Welcome to <strong>Tutoriza2</strong>!
       </Typography>
       <br /><br /><br />
-      <Typography variant="h5" align="center" color="textSecondary" component="p">
+      <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.lighter}>
         You can search for tutorship schedules in 2 ways
       </Typography>
       <br /><br /><br /><br />
@@ -23,14 +31,14 @@ function Home() {
             <LinkCard 
               to="/schedules-by-professor"
               title={"By Professor"}
-              body={'Mauris vitae tempor mauris, fringilla lacinia nisl. Donec sed purus ut mi dapibus fringilla sit amet in dolor.'}
+              body={'Select the professor of the subject to see its availability'}
             />
           </Grid>
           <Grid item key={"Search by subject"} xs={12} sm={6} md={6}>
             <LinkCard 
               to="/schedules-by-subject"
               title={"By Subject"}
-              body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae tempor mauris, fringilla lacinia nisl.'}
+              body={'Select a subject to see the availability of support professors'}
             />
           </Grid>
         </Grid>

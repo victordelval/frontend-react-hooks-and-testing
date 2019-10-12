@@ -10,7 +10,7 @@ import lime from '@material-ui/core/colors/lime';
 import pink from '@material-ui/core/colors/pink';
 
 const weekDays = [ 'lunes', 'martes', 'miércoles', 'jueves', 'viernes' ]
-const dayHours = [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
+const dayHours = [ '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ]
 
 const TimetableHeaderCell = withStyles(theme => ({
   head: {
@@ -74,7 +74,10 @@ function Timetable({ schedules }) {
                 {hour}
               </TimetableRowHeaderCell>
               {weekDays.map(day => {
+                // console.log("****")
                 if (schedules[day].some(slot => slot.to === hour )) {
+                  console.log(day)
+                  console.log(hour)
                   return <TimetableSelectedCell key={`${day}-${hour}`}></TimetableSelectedCell>
                 } else {
                   return <TableCell key={`${day}-${hour}`}></TableCell>
