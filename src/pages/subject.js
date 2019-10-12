@@ -23,23 +23,24 @@ const useStyles = makeStyles(theme => ({
 
 function Professor() {
   const classes = useStyles();
-  const { professors, subjects, getSupportProffessors } = useData()
-  const [selected, setSelected] = useState(null)
-  const [ supportProfessors, setSupportProfessors ] = useState([])
+  const { subjects, getSupportProffessors, getProfessorArea } = useData()
+  const [subject, setSubject] = useState(null)
+  const [area, setArea] = useState(null)
+  const [supportProfessors, setSupportProfessors] = useState([])
 
   useEffect(() => {
-    if (selected) {
-      getSupportProfessors(selected.professor)
+    if (subject) {
+      prepareData(subject.professor)
     }
-  }, [selected])
+  }, [subject])
 
   const handleChange = e => {
-    setSelected(e.target.value)
+    setSubject(e.target.value)
   }
 
-  const getSupportProfessors = professorId => {
-    console.log("getSupportProffessors(professorId)")
-    console.log(getSupportProffessors(professorId))
+  const prepareData = professorId => {
+    setArea(getProfessorArea(professorId))
+    setSupportProfessors(getSupportProffessors(professorId))
   }
 
   return (
@@ -49,16 +50,24 @@ function Professor() {
       </Typography>
       <br />
       <Container maxWidth="md" component="main">
-        <Selector data={subjects} selected={selected} handleChange={handleChange} />
+        <Selector data={subjects} selected={subject} handleChange={handleChange} />
         <br />
         <br />
-        {selected && (
+        {subject && (
           <Paper className={classes.detail}>
             <Typography variant="h5" component="h3" className={classes.lighter}>
-              {selected.name}
+              {subject.name}
+              <span className={classes.floatRight}>
+                <Chip label={area} variant="outlined" />
+              </span>
             </Typography>
             <br />
-            {/* <Timetable schedules={selected.schedules} /> */}
+            {supportProfessors.map(professor => (
+              <Typography key={professor.name} variant="body1" className={classes.lighter}>
+                {professor.name}
+              </Typography>
+            ))}
+            {/* <Timetable schedules={subject.schedules} /> */}
           </Paper>
         )}
       </Container>
