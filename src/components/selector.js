@@ -8,7 +8,11 @@ import FormControl from '@material-ui/core/FormControl';
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
+    padding: 0,
     minWidth: 400,
+  },
+  compact: {
+    padding: '12px',
   },
 }));
 
@@ -22,12 +26,10 @@ function Selector({ data, selected, handleChange }) {
           onChange={e => handleChange(e)}
           inputProps={{
             name: "selectorbox",
-            id: "selectorbox"
+            id: "selectorbox",
+            className: classes.compact,
           }}
         >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
           {data.map(item => 
             <MenuItem key={item.id} value={item}>{item.name}</MenuItem>  
           )}

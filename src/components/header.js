@@ -43,7 +43,7 @@ function Header() {
       <Toolbar className={classes.toolbar}>
         <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
           <NavLink to="/">
-            <strong>Tutoriza<big>2</big></strong>
+            Tutoriza<big>2</big>
           </NavLink>
         </Typography>
         <nav>
