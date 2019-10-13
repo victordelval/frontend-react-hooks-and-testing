@@ -30,6 +30,7 @@ const TimetableRowHeaderCell = withStyles(theme => ({
 const TimetableSelectedCell = withStyles(theme => ({
   body: {
     backgroundColor: pink[400],
+    color: 'white',
     // border: '1px solid white'
   },
 }))(TableCell);
@@ -56,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Timetable({ schedules }) {
+function Timetable({ schedules, namedSlots }) {
   const classes = useStyles();
 
   return (
@@ -77,9 +78,21 @@ function Timetable({ schedules }) {
                 {hour}
               </TimetableRowHeaderCell>
               {weekDays.map(day => {
-                // console.log("****")
-                if (schedules[day].some(slot => slot.to === hour )) {
-                  return <TimetableSelectedCell key={`${day}-${hour}`} className={classes.slimCell}></TimetableSelectedCell>
+                let professor;
+                const checkDaySlot = schedules[day].some(slot => {
+                  const check = slot.to === hour
+                  if (check) professor = slot.professor
+                  return check
+                })
+                if (checkDaySlot) {
+                  return (
+                    <TimetableSelectedCell 
+                      key={`${day}-${hour}`} 
+                      className={classes.slimCell}
+                    >
+                      {namedSlots && (<small>{professor}</small>)}
+                    </TimetableSelectedCell>
+                  )
                 } else {
                   return <TableCell key={`${day}-${hour}`} className={classes.slimCell}></TableCell>
                 }

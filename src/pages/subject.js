@@ -56,11 +56,13 @@ function Professor() {
     }
     areaProfessors.map(professor => {
       Object.keys(professor.schedules).map(day => {
-        schedules[day].push(...professor.schedules[day])
+        const professorDay = professor.schedules[day].map(timeObj => {
+          timeObj.professor = professor.name
+          return timeObj
+        })
+        schedules[day].push(...professorDay)
       })
     })
-    console.log("merge schedules")
-    console.log(schedules)
     return schedules
   }
 
@@ -89,7 +91,7 @@ function Professor() {
               </Typography>
             ))}
             {availableSupport && (
-              <Timetable schedules={availableSupport} />
+              <Timetable schedules={availableSupport} namedSlots />
             )}
           </Paper>
         )}
