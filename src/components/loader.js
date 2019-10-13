@@ -20,7 +20,7 @@ function Loader({ type }) {
         )
       case 'message':
         return (
-          <Typography variant="body1" component="div" align="center" className={classes.lighter}>
+          <Typography variant="h5" component="div" align="center" className={classes.lighter}>
             Loading...
           </Typography>
         )
