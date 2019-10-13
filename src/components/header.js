@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 function Header() {
   const classes = useStyles();
-  const { loading } = useData()
+  const { loading } = useData() || false;
   return (
     <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
