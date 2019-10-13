@@ -41,6 +41,9 @@ describe('<App />', () => {
     // console.log("Home")
     // console.log(component.find(Home).props())
     expect(component.find(Home)).toHaveLength(1);
+    expect(component.find(Professor)).toHaveLength(0);
+    expect(component.find(Subject)).toHaveLength(0);
+    expect(component.find(NotFound)).toHaveLength(0);
   })
 
   it('should render <Professor /> when navigating to path "/schedules-by-professor"', () => {
@@ -48,16 +51,19 @@ describe('<App />', () => {
     // console.log("Professor")
     // console.log(component.find(Professor).props())
     expect(component.find(Professor)).toHaveLength(1);
+    expect(component.find(Home)).toHaveLength(0);
   })
 
   it('should render <Subject /> when navigating to path "/schedules-by-subject"', () => {
     const component = mount(<MemoryRouter initialEntries={['/schedules-by-subject']}><App/></MemoryRouter>);
     expect(component.find(Subject)).toHaveLength(1);
+    expect(component.find(Home)).toHaveLength(0);
   })
 
   it('should render <NotFound /> when navigating to path "/some-path"', () => {
     const component = mount(<MemoryRouter initialEntries={['/some-path']}><App/></MemoryRouter>);
     expect(component.find(NotFound)).toHaveLength(1);
+    expect(component.find(Home)).toHaveLength(0);
   })
 
 
