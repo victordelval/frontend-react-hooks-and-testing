@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 function Professor() {
   const classes = useStyles();
-  const { professors, loading } = useData()
+  const { professors, loading } = useData() || false
   const [selected, setSelected] = useState(null)
 
   const handleChange = e => {

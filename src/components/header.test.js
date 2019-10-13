@@ -19,14 +19,14 @@ describe('<Header />', () => {
   })
 
   it('should render one router <Link /> to "/"', () => {
-    expect(wrapper.findWhere(n => n.prop('to') === '/')).toHaveLength(1)
+    expect(wrapper.findWhere(link => link.prop('to') === '/')).toHaveLength(1)
   })
 
   it('should render one router <Link /> to "/schedules-by-professor"', () => {
-    expect(wrapper.findWhere(n => n.prop('to') === '/schedules-by-professor')).toHaveLength(1)
+    expect(wrapper.findWhere(link => link.prop('to') === '/schedules-by-professor')).toHaveLength(1)
   })
 
   it('should render one router <Link /> to "/schedules-by-subject"', () => {
-    expect(wrapper.findWhere(n => n.prop('to') === '/schedules-by-subject')).toHaveLength(1)
+    expect(wrapper.findWhere(link => link.prop('to') === '/schedules-by-subject')).toHaveLength(1)
   })
 })

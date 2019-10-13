@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 function Layout({ children }) {
   const classes = useStyles();
-  const { loading, error } = useData()
+  const { error } = useData() || false
   return (
     <div className={classes.root}>
       <CssBaseline />

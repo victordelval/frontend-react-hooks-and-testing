@@ -13,7 +13,7 @@ import NotFound from './pages/404'
 
 function App() {
   return (
-    <Router>
+    // <Router>
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -24,7 +24,7 @@ function App() {
           </Route>
         </Switch>
       </Layout>
-    </Router>
+    // </Router>
   );
 }
 

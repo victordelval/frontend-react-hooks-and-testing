@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 function Subject() {
   const classes = useStyles();
-  const { subjects, loading, getSupportProffessors, getProfessorArea } = useData()
+  const { subjects, loading, getSupportProffessors, getProfessorArea } = useData() || false
   const [subject, setSubject] = useState(null)
   const [area, setArea] = useState(null)
   const [supportProfessors, setSupportProfessors] = useState([])
