@@ -78,7 +78,7 @@ function Subject() {
         <br />
         <br />
         {loading && (
-            <Loader type={'text'} />
+            <Loader type={'message'} />
         )}
         {subject && (
           <Paper className={classes.detail}>
