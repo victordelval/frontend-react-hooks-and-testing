@@ -51,8 +51,7 @@ function Header() {
           </NavLink>
         </Typography>
         <nav>
-          {/* <Loader /> */}
-          {loading && <Loader />}
+          {loading && <Loader type={'header'} />}
           <NavLink to="/schedules-by-professor">
             <Button color="primary" className={classes.link}>
               By Professor

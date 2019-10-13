@@ -89,6 +89,7 @@ function Timetable({ schedules, namedSlots }) {
                     <TimetableSelectedCell 
                       key={`${day}-${hour}`} 
                       className={classes.slimCell}
+                      align="center"
                     >
                       {namedSlots && (<small>{professor}</small>)}
                     </TimetableSelectedCell>

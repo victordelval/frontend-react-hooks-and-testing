@@ -8,6 +8,7 @@ import Chip from '@material-ui/core/Chip';
 
 import { useData } from '../data/data'
 import Timetable from '../components/timetable'
+import Loader from '../components/loader'
 
 const useStyles = makeStyles(theme => ({
   floatRight: {
@@ -21,9 +22,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Professor() {
+function Subject() {
   const classes = useStyles();
-  const { subjects, getSupportProffessors, getProfessorArea } = useData()
+  const { subjects, loading, getSupportProffessors, getProfessorArea } = useData()
   const [subject, setSubject] = useState(null)
   const [area, setArea] = useState(null)
   const [supportProfessors, setSupportProfessors] = useState([])
@@ -76,6 +77,9 @@ function Professor() {
         <Selector data={subjects} selected={subject} handleChange={handleChange} />
         <br />
         <br />
+        {loading && (
+            <Loader type={'text'} />
+        )}
         {subject && (
           <Paper className={classes.detail}>
             <Typography variant="h5" component="h3" className={classes.lighter}>
@@ -100,4 +104,4 @@ function Professor() {
   )
 }
 
-export default Professor
+export default Subject

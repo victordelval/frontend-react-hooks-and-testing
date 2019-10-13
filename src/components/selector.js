@@ -22,6 +22,7 @@ function Selector({ data, selected, handleChange }) {
     <div align="center">
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
+          disabled={data.length === 0}
           value={selected ? selected.name : ''}
           onChange={e => handleChange(e)}
           inputProps={{
