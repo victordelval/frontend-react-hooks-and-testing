@@ -27,6 +27,7 @@ function Professor() {
   const [subject, setSubject] = useState(null)
   const [area, setArea] = useState(null)
   const [supportProfessors, setSupportProfessors] = useState([])
+  const [availableSupport, setAvailableSupport] = useState(null)
 
   useEffect(() => {
     if (subject) {
@@ -40,7 +41,27 @@ function Professor() {
 
   const prepareData = professorId => {
     setArea(getProfessorArea(professorId))
-    setSupportProfessors(getSupportProffessors(professorId))
+    const areaProfessors = getSupportProffessors(professorId)
+    setSupportProfessors(areaProfessors)
+    setAvailableSupport(mergeSchedules(areaProfessors))
+  }
+
+  const mergeSchedules = areaProfessors => {
+    const schedules = {
+      lunes: [],
+      martes: [],
+      miércoles: [],
+      jueves: [],
+      viernes: [],
+    }
+    areaProfessors.map(professor => {
+      Object.keys(professor.schedules).map(day => {
+        schedules[day].push(...professor.schedules[day])
+      })
+    })
+    console.log("merge schedules")
+    console.log(schedules)
+    return schedules
   }
 
   return (
@@ -67,7 +88,9 @@ function Professor() {
                 {professor.name}
               </Typography>
             ))}
-            {/* <Timetable schedules={subject.schedules} /> */}
+            {availableSupport && (
+              <Timetable schedules={availableSupport} />
+            )}
           </Paper>
         )}
       </Container>
