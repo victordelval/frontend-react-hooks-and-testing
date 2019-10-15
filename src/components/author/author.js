@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 function Author() {
   return (
@@ -13,4 +13,4 @@ function Author() {
   );
 }
 
-export default Author
+export default Author;

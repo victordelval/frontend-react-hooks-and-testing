@@ -28,7 +28,7 @@ export const DataProvider = ({ children }) => {
 
   const getProfessorArea = professorId => {
     const professor = professors.find(p => p.id === professorId);
-    return professor.area
+    return professor.area;
   };
 
   const getSupportProffessors = professorId => {

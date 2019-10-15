@@ -2,16 +2,16 @@ import React from "react";
 
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from '@material-ui/core/Container';
+import Container from "@material-ui/core/Container";
 
-import Author from '../author/author'
+import Author from "../author/author";
 
 const useStyles = makeStyles(theme => ({
   footer: {
     padding: theme.spacing(2),
-    marginTop: 'auto',
-    backgroundColor: 'white',
-  },
+    marginTop: "auto",
+    backgroundColor: "white"
+  }
 }));
 
 function Footer() {

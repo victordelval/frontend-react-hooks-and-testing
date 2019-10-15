@@ -1,57 +1,65 @@
-import React from 'react'
+import React from "react";
 import { Link as NavLink } from "react-router-dom";
 
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
-import { useData } from '../../data/data'
-import Loader from '../loader/loader'
+import { useData } from "../../data/data";
+import Loader from "../loader/loader";
 
 const useStyles = makeStyles(theme => ({
-  '@global': {
+  "@global": {
     body: {
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: theme.palette.common.white
     },
     ul: {
       margin: 0,
-      padding: 0,
+      padding: 0
     },
     li: {
-      listStyle: 'none',
-    },
+      listStyle: "none"
+    }
   },
   appBar: {
-    backgroundColor: 'white',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    backgroundColor: "white",
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbar: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap"
   },
   toolbarTitle: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   link: {
     margin: theme.spacing(1, 1.5),
-    color: 'initial'
-  },
+    color: "initial"
+  }
 }));
 
 function Header() {
   const classes = useStyles();
   const { loading } = useData() || false;
   return (
-    <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+    <AppBar
+      position="static"
+      color="default"
+      elevation={0}
+      className={classes.appBar}
+    >
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h5" color="inherit" noWrap className={classes.toolbarTitle}>
-          <NavLink to="/">
-            Tutoriza2
-          </NavLink>
+        <Typography
+          variant="h5"
+          color="inherit"
+          noWrap
+          className={classes.toolbarTitle}
+        >
+          <NavLink to="/">Tutoriza2</NavLink>
         </Typography>
         <nav>
-          {loading && <Loader type={'header'} />}
+          {loading && <Loader type={"header"} />}
           <NavLink to="/schedules-by-professor">
             <Button color="primary" className={classes.link}>
               By Professor
@@ -65,7 +73,7 @@ function Header() {
         </nav>
       </Toolbar>
     </AppBar>
-  )
+  );
 }
 
-export default Header
+export default Header;
