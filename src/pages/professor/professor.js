@@ -6,10 +6,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Chip from "@material-ui/core/Chip";
 
-import { useData } from "../data/data";
-import Selector from "../components/selector/selector";
-import Timetable from "../components/timetable/timetable";
-import Loader from "../components/loader/loader";
+import { useData } from "../../data/data";
+import Selector from "../../components/selector/selector";
+import Timetable from "../../components/timetable/timetable";
+import Loader from "../../components/loader/loader";
 
 const useStyles = makeStyles(theme => ({
   floatRight: {
