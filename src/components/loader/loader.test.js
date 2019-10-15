@@ -6,6 +6,8 @@ import Loader from "./loader";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
 
+import { AppConfig } from "../../utils/config";
+
 configure({ adapter: new Adapter() });
 
 describe("<Loader />", () => {
@@ -27,7 +29,7 @@ describe("<Loader />", () => {
   it('should return a loading text if type prop is "message"', () => {
     wrapper.setProps({ type: "message" });
     expect(wrapper.find(Typography)).toHaveLength(1);
-    expect(wrapper.find(Typography).props().children).toEqual("Loading...");
+    expect(wrapper.find(Typography).props().children).toEqual(AppConfig.loader.text);
   });
 
   it('should return the smaller one if type prop is "header"', () => {

@@ -58,7 +58,7 @@ function Header() {
       className={classes.appBar}
     >
       <Toolbar className={classes.toolbar}>
-        {/* <PeopleAlt className={classes.icon} />  */}
+        <PeopleAlt className={classes.icon} /> 
         <Typography
           variant="h5"
           color="inherit"
