@@ -9,11 +9,16 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import lime from "@material-ui/core/colors/lime";
+import grey from "@material-ui/core/colors/grey";
 
 const useStyles = makeStyles(theme => ({
   cardHeader: {
     backgroundColor: lime[400]
-  }
+  },
+  cardBody: {
+    fontWeight: "lighter",
+    color: grey[800]
+  },
 }));
 
 function LinkCard({ to, title, body }) {
@@ -30,7 +35,7 @@ function LinkCard({ to, title, body }) {
           />
           <CardContent>
             <ul>
-              <Typography component="li" variant="subtitle1" align="center">
+              <Typography component="li" variant="subtitle1" align="center" className={classes.cardBody}>
                 {body}
               </Typography>
             </ul>

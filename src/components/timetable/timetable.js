@@ -36,15 +36,15 @@ const TimetableHeaderCell = withStyles(theme => ({
 
 const TimetableRowHeaderCell = withStyles(theme => ({
   body: {
-    backgroundColor: lime[200]
+    backgroundColor: lime[100]
   }
 }))(TableCell);
 
 const TimetableSelectedCell = withStyles(theme => ({
   body: {
     backgroundColor: pink[400],
-    color: "white"
-    // border: '1px solid white'
+    color: "white",
+    border: '1px solid white'
   }
 }))(TableCell);
 
@@ -97,7 +97,7 @@ function Timetable({ schedules, namedSlots, onlyToday }) {
       <Table className={classes.table} size="small">
         <TableHead>
           <TableRow>
-            <TimetableHeaderCell></TimetableHeaderCell>
+            <TimetableHeaderCell style={{ width: '5%' }}></TimetableHeaderCell>
             {dataDays.map(day => (
               <TimetableHeaderCell key={day} align="center">
                 {day.toUpperCase()}
@@ -111,7 +111,7 @@ function Timetable({ schedules, namedSlots, onlyToday }) {
               <TimetableRowHeaderCell
                 component="th"
                 scope="row"
-                align="right"
+                align="center"
                 className={classes.slimCell}
               >
                 {hour}
