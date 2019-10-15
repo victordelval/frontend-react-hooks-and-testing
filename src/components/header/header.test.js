@@ -24,8 +24,8 @@ describe("<Header />", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should render 3 router <Link /> elements", () => {
-    expect(wrapper.find(Link)).toHaveLength(3);
+  it("should render 4 router <Link /> elements", () => {
+    expect(wrapper.find(Link)).toHaveLength(4);
   });
 
   it('should render one router <Link /> to "/"', () => {

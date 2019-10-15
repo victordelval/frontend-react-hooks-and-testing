@@ -18,8 +18,8 @@ describe("<App />", () => {
     wrapper = shallow(<App />);
   });
 
-  it("should render 4 router <Route /> elements", () => {
-    expect(wrapper.find(Route)).toHaveLength(4);
+  it("should render 5 router <Route /> elements", () => {
+    expect(wrapper.find(Route)).toHaveLength(5);
   });
 
   it('should render one router <Route /> to path "/"', () => {
