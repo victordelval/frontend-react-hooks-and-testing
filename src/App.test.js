@@ -50,8 +50,6 @@ describe("<App />", () => {
         <App />
       </MemoryRouter>
     );
-    // console.log("Home")
-    // console.log(component.find(Home).props())
     expect(component.find(Home)).toHaveLength(1);
     expect(component.find(Professor)).toHaveLength(0);
     expect(component.find(OtherProfessors)).toHaveLength(0);
@@ -64,8 +62,6 @@ describe("<App />", () => {
         <App />
       </MemoryRouter>
     );
-    // console.log("Professor")
-    // console.log(component.find(Professor).props())
     expect(component.find(Professor)).toHaveLength(1);
     expect(component.find(Home)).toHaveLength(0);
   });
@@ -89,16 +85,4 @@ describe("<App />", () => {
     expect(component.find(NotFound)).toHaveLength(1);
     expect(component.find(Home)).toHaveLength(0);
   });
-
-  // it('should render one router <Link /> to "/"', () => {
-  //   expect(wrapper.findWhere(link => link.prop('to') === '/')).toHaveLength(1)
-  // })
-
-  // it('should render one router <Link /> to "/profesor-asignatura"', () => {
-  //   expect(wrapper.findWhere(link => link.prop('to') === '/profesor-asignatura')).toHaveLength(1)
-  // })
-
-  // it('should render one router <Link /> to "/otros-profesores"', () => {
-  //   expect(wrapper.findWhere(link => link.prop('to') === '/otros-profesores')).toHaveLength(1)
-  // })
 });

@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import ErrorIcon from "@material-ui/icons/ErrorOutline";
-import red from '@material-ui/core/colors/red';
+import red from "@material-ui/core/colors/red";
 
 const useStyles = makeStyles(theme => ({
   error: {
@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 
 function Error({ msg }) {
   const classes = useStyles();
-  console.log(msg)
   return (
     <Container maxWidth="sm">
       <Typography
@@ -27,7 +26,7 @@ function Error({ msg }) {
       >
         <ErrorIcon fontSize="large" className={classes.icon} />
         <br />
-        {msg && msg.message} 
+        {msg && msg.message}
       </Typography>
     </Container>
   );
