@@ -34,6 +34,10 @@ export const DataProvider = ({ children }) => {
     }, 2000);
   };
 
+  const getProfessorById = professorId => {
+    return professors.find(p => p.id === professorId);
+  };
+
   const getProfessorArea = professorId => {
     const professor = professors.find(p => p.id === professorId);
     return professor.area;
@@ -41,7 +45,7 @@ export const DataProvider = ({ children }) => {
 
   const getSupportProffessors = professorId => {
     const area = getProfessorArea(professorId);
-    return professors.filter(p => p.area === area);
+    return professors.filter(p => p.area === area && p.id !== professorId);
   };
 
   return (
@@ -51,6 +55,7 @@ export const DataProvider = ({ children }) => {
         subjects,
         loading,
         error,
+        getProfessorById,
         getSupportProffessors,
         getProfessorArea
       }}

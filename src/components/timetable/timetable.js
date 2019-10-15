@@ -11,6 +11,7 @@ import lime from "@material-ui/core/colors/lime";
 import pink from "@material-ui/core/colors/pink";
 
 const weekDays = ["lunes", "martes", "miércoles", "jueves", "viernes"];
+const weekDay = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
 const dayHours = [
   "8",
   "9",
@@ -69,16 +70,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Timetable({ schedules, namedSlots }) {
+function Timetable({ schedules, namedSlots, onlyToday }) {
   const classes = useStyles();
 
+  function getTodayConfig() {
+    var today = new Date();
+    return [weekDay[today.getDay()]]
+  }
+
+  const dataDays = !onlyToday ? weekDays : getTodayConfig()
   return (
     <Paper className={classes.root} elevation={0}>
       <Table className={classes.table} size="small">
         <TableHead>
           <TableRow>
             <TimetableHeaderCell></TimetableHeaderCell>
-            {weekDays.map(day => (
+            {dataDays.map(day => (
               <TimetableHeaderCell key={day} align="center">
                 {day.toUpperCase()}
               </TimetableHeaderCell>
@@ -96,7 +103,7 @@ function Timetable({ schedules, namedSlots }) {
               >
                 {hour}
               </TimetableRowHeaderCell>
-              {weekDays.map(day => {
+              {dataDays.map(day => {
                 let professor;
                 const checkDaySlot = schedules[day].some(slot => {
                   const check = slot.to === hour;

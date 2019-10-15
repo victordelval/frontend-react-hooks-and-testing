@@ -26,10 +26,10 @@ const useStyles = makeStyles(theme => ({
 
 function AvailableToday() {
   const classes = useStyles();
-  const { subjects, loading, getSupportProffessors, getProfessorArea } = useData() || false;
+  const { subjects, loading, getProfessorById, getSupportProffessors, getProfessorArea } = useData() || false;
   const [subject, setSubject] = useState(null);
   const [area, setArea] = useState(null);
-  const [supportProfessors, setSupportProfessors] = useState([]);
+  const [allProfessors, setAllProfessors] = useState([]);
   const [availableSupport, setAvailableSupport] = useState(null);
 
   useEffect(() => {
@@ -45,9 +45,11 @@ function AvailableToday() {
 
   const prepareData = professorId => {
     setArea(getProfessorArea(professorId));
+    const subjectProfessor = getProfessorById(professorId);
     const areaProfessors = getSupportProffessors(professorId);
-    setSupportProfessors(areaProfessors);
-    setAvailableSupport(mergeSchedules(areaProfessors));
+    const sumProfessors = [subjectProfessor, ...areaProfessors];
+    setAllProfessors(sumProfessors);
+    setAvailableSupport(mergeSchedules(sumProfessors));
   };
 
   const mergeSchedules = areaProfessors => {
@@ -100,7 +102,7 @@ function AvailableToday() {
               </span>
             </Typography>
             <br />
-            {supportProfessors.map(professor => (
+            {allProfessors.map(professor => (
               <Typography
                 key={professor.name}
                 variant="body1"
@@ -110,7 +112,7 @@ function AvailableToday() {
               </Typography>
             ))}
             {availableSupport && (
-              <Timetable schedules={availableSupport} namedSlots />
+              <Timetable schedules={availableSupport} namedSlots onlyToday />
             )}
           </Paper>
         )}
