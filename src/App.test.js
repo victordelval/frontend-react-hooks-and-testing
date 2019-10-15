@@ -4,10 +4,10 @@ import Adapter from "enzyme-adapter-react-16";
 
 import { Route, MemoryRouter } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/home";
-import Professor from "./pages/professor";
-import Subject from "./pages/subject";
-import NotFound from "./pages/notFound";
+import Home from "./pages/home/home";
+import Professor from "./pages/professor/professor";
+import Subject from "./pages/subject/subject";
+import NotFound from "./pages/notFound/notFound";
 
 configure({ adapter: new Adapter() });
 
