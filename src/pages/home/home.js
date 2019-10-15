@@ -27,7 +27,7 @@ function Home() {
         className={classes.lighter}
         gutterBottom
       >
-        Welcome to <strong>Tutoriza2</strong>!
+        {AppConfig.pages.home.title}
       </Typography>
       <br />
       <br />
@@ -38,7 +38,7 @@ function Home() {
         component="p"
         className={classes.lighter}
       >
-        You can search for tutorship schedules in 2 ways
+        {AppConfig.pages.home.subtitle}
       </Typography>
       <br />
       <br />
@@ -49,19 +49,15 @@ function Home() {
           <Grid item key={"Search by professor"} xs={12} sm={6} md={6}>
             <LinkCard
               to={AppConfig.routes.subjectProfessor}
-              title={"By Professor"}
-              body={
-                "Select the professor of the subject to see its availability"
-              }
+              title={AppConfig.pages.home.linkToSubjectProfessor.title}
+              body={AppConfig.pages.home.linkToSubjectProfessor.body}
             />
           </Grid>
           <Grid item key={"Search by subject"} xs={12} sm={6} md={6}>
             <LinkCard
               to={AppConfig.routes.otherProfessors}
-              title={"By Subject"}
-              body={
-                "Select a subject to see the availability of support professors"
-              }
+              title={AppConfig.pages.home.linkToOtherProfessors.title}
+              body={AppConfig.pages.home.linkToOtherProfessors.body}
             />
           </Grid>
         </Grid>

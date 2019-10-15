@@ -57,18 +57,18 @@ function Header() {
           noWrap
           className={classes.toolbarTitle}
         >
-          <NavLink to="/">Tutoriza2</NavLink>
+          <NavLink to="/">{AppConfig.appName}</NavLink>
         </Typography>
         <nav>
           {loading && <Loader type={"header"} />}
           <NavLink to={AppConfig.routes.subjectProfessor}>
             <Button color="primary" className={classes.link}>
-              By Professor
+              {AppConfig.header.linkToSubjectProfessor}
             </Button>
           </NavLink>
           <NavLink to={AppConfig.routes.otherProfessors}>
             <Button color="primary" className={classes.link}>
-              By Subject
+              {AppConfig.header.linkToOtherProfessors}            
             </Button>
           </NavLink>
         </nav>
