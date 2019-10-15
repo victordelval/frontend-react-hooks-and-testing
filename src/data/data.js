@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-import { getAllData } from "./api";
+import { getAllData } from "../utils/api";
+import { AppConfig } from "../utils/config";
+
+const resources = ["/professors", "/subjects"];
+const urls = resources.map(resource => AppConfig.serverDomain + resource)
 
 export const DataContext = createContext(null);
 
@@ -14,16 +18,20 @@ export const DataProvider = ({ children }) => {
     getData();
   }, []);
 
-  const getData = async () => {
+  const getData = () => {
     setLoading(true);
-    try {
-      const [professors, subjects] = await getAllData();
-      setProffesors(professors.data);
-      setSubjects(subjects.data);
-    } catch (err) {
-      setError(err);
-    }
-    setLoading(false);
+    // to simulate network delay
+    setTimeout(async () => {
+      try {
+        const [professors, subjects] = await getAllData(urls);
+        setProffesors(professors.data);
+        setSubjects(subjects.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    }, 2000);
   };
 
   const getProfessorArea = professorId => {
