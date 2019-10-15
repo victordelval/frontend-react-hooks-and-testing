@@ -11,6 +11,8 @@ import Selector from "../../components/selector/selector";
 import Timetable from "../../components/timetable/timetable";
 import Loader from "../../components/loader/loader";
 
+import { AppConfig } from "../../utils/config";
+
 const useStyles = makeStyles(theme => ({
   floatRight: {
     float: "right"
@@ -41,7 +43,7 @@ function Professor() {
         component="p"
         className={classes.lighter}
       >
-        Select the professor of the subject to see its availability
+        {AppConfig.pages.professor.title}
       </Typography>
       <br />
       <Container maxWidth="md" component="main">

@@ -15,12 +15,18 @@ export const AppConfig = {
       subtitle: "Puedes buscar los horarios de tutorías de dos maneras",
       linkToSubjectProfessor: {
         title: "Profesor asignatura",
-        body: "Busca a tu profesor y consulta su disponibilidad diaria a lo largo de la semana"
+        body: "Busca a tu profesor y consulta su disponibilidad semanal para tutorías"
       },
       linkToOtherProfessors: {
         title: "Otros profesores",
-        body: "Selecciona la asignatura de interés para consultar la disponibilidad de otros profesores relacionados"
+        body: "Selecciona la asignatura para ver la disponibilidad de otros profesores"
       }
+    },
+    professor: {
+      title: "Selecciona un profesor para ver su disponibilidad semanal para tutorías"
+    },
+    otherProfessors: {
+      title: "Selecciona una asignatura para ver la disponibilidad de otros profesores"
     }
   }
 };

@@ -10,6 +10,8 @@ import Selector from "../../components/selector/selector";
 import Timetable from "../../components/timetable/timetable";
 import Loader from "../../components/loader/loader";
 
+import { AppConfig } from "../../utils/config";
+
 const useStyles = makeStyles(theme => ({
   floatRight: {
     float: "right"
@@ -76,7 +78,7 @@ function Subject() {
         component="p"
         className={classes.lighter}
       >
-        Select a subject to see the availability of support professors
+        {AppConfig.pages.otherProfessors.title}        
       </Typography>
       <br />
       <Container maxWidth="md" component="main">
