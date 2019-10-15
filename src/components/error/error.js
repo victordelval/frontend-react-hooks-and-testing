@@ -27,7 +27,7 @@ function Error({ msg }) {
       >
         <ErrorIcon fontSize="large" className={classes.icon} />
         <br />
-        {msg.message} 
+        {msg && msg.message} 
       </Typography>
     </Container>
   );
