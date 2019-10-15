@@ -36,6 +36,7 @@ function OtherProfessors() {
     if (subject) {
       prepareData(subject.professor);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subject]);
 
   const handleChange = e => {
@@ -57,8 +58,8 @@ function OtherProfessors() {
       jueves: [],
       viernes: []
     };
-    areaProfessors.map(professor => {
-      Object.keys(professor.schedules).map(day => {
+    areaProfessors.forEach(professor => {
+      Object.keys(professor.schedules).forEach(day => {
         const professorDay = professor.schedules[day].map(timeObj => {
           timeObj.professor = professor.name;
           return timeObj;
