@@ -81,6 +81,11 @@ function Header() {
               {AppConfig.header.linkToOtherProfessors}            
             </Button>
           </NavLink>
+          <NavLink to={AppConfig.routes.availableToday}>
+            <Button color="primary" className={classes.link}>
+              {AppConfig.header.linkToAvailableToday}            
+            </Button>
+          </NavLink>
         </nav>
       </Toolbar>
     </AppBar>

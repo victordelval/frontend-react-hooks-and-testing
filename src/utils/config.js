@@ -3,11 +3,13 @@ export const AppConfig = {
   serverDomain: "http://localhost:3004",
   routes: {
     subjectProfessor: "/profesor-asignatura",
-    otherProfessors: "/otros-profesores"
+    otherProfessors: "/otros-profesores",
+    availableToday: "/disponible-hoy"
   },
   header: {
     linkToSubjectProfessor: "Profesor asignatura",
-    linkToOtherProfessors: "Otros profesores"
+    linkToOtherProfessors: "Otros profesores",
+    linkToAvailableToday: "Horarios hoy"
   },
   pages: {
     home: {
@@ -27,6 +29,9 @@ export const AppConfig = {
     },
     otherProfessors: {
       title: "Selecciona una asignatura para ver la disponibilidad de otros profesores"
+    },
+    availableToday: {
+      title: "Selecciona una asignatura para ver la disponibilidad para hoy"
     }
   },
   loader: {
