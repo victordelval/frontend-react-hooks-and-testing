@@ -10,7 +10,7 @@ describe("<LinkCard />", () => {
   let wrapper;
 
   beforeAll(() => {
-    wrapper = shallow(<LinkCard />);
+    wrapper = shallow(<LinkCard to="/"  />);
   });
 
   it("renders correctly", () => {

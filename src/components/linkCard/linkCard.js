@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -39,5 +40,11 @@ function LinkCard({ to, title, body }) {
     </Link>
   );
 }
+
+LinkCard.propTypes = {
+  to: PropTypes.string,
+  title: PropTypes.string,
+  body: PropTypes.string
+};
 
 export default LinkCard;

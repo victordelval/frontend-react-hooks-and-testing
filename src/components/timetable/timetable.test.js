@@ -10,7 +10,8 @@ describe("<Timetable />", () => {
   let wrapper;
 
   beforeAll(() => {
-    wrapper = shallow(<Timetable />);
+    const schedules= { "lunes": [], "martes": [], "miércoles": [], "jueves": [], "viernes": [] }
+    wrapper = shallow(<Timetable schedules={schedules} />);
   });
 
   it("renders correctly", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { configure, shallow, mount } from "enzyme";
+import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { MemoryRouter } from "react-router-dom";
 
@@ -11,7 +11,6 @@ describe("<NotFound />", () => {
   let wrapper;
 
   beforeAll(() => {
-    // wrapper = shallow(<NotFound />);
     wrapper = mount(
       <MemoryRouter>
         <NotFound />
