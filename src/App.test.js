@@ -7,7 +7,7 @@ import App from './App';
 import Home from './pages/home'
 import Professor from './pages/professor'
 import Subject from './pages/subject'
-import NotFound from './pages/404'
+import NotFound from './pages/notFound'
 
 configure({ adapter: new Adapter() });
 

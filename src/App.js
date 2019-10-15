@@ -1,11 +1,11 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Layout from './components/layout'
-import Home from './pages/home'
-import Professor from './pages/professor'
-import Subject from './pages/subject'
-import NotFound from './pages/404'
+import Layout from "./components/layout/layout";
+import Home from "./pages/home";
+import Professor from "./pages/professor";
+import Subject from "./pages/subject";
+import NotFound from "./pages/notFound";
 
 function App() {
   return (

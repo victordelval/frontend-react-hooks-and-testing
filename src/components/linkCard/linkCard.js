@@ -12,7 +12,6 @@ import lime from '@material-ui/core/colors/lime';
 const useStyles = makeStyles(theme => ({
   cardHeader: {
     backgroundColor: lime[400]
-    // backgroundColor: theme.palette.grey[200]
   }
 }));
 

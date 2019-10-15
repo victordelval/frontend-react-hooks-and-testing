@@ -7,8 +7,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { useData } from '../data/data'
-import Loader from './loader'
+import { useData } from '../../data/data'
+import Loader from '../loader/loader'
 
 const useStyles = makeStyles(theme => ({
   '@global': {

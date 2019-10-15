@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -16,9 +17,6 @@ const TimetableHeaderCell = withStyles(theme => ({
   head: {
     backgroundColor: lime[400],
   },
-  // body: {
-  //   fontSize: 18,
-  // },
 }))(TableCell);
 
 const TimetableRowHeaderCell = withStyles(theme => ({

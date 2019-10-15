@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Selector from '../components/selector'
+
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,8 +7,9 @@ import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 
 import { useData } from '../data/data'
-import Timetable from '../components/timetable'
-import Loader from '../components/loader'
+import Selector from '../components/selector/selector'
+import Timetable from '../components/timetable/timetable'
+import Loader from '../components/loader/loader'
 
 const useStyles = makeStyles(theme => ({
   floatRight: {

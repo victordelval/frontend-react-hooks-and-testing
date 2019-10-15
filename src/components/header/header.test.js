@@ -13,6 +13,10 @@ describe('<Header />', () => {
   beforeAll(() => {
     wrapper = mount(<MemoryRouter><Header /></MemoryRouter>);
   })
+
+  it('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
   
   it('should render 3 router <Link /> elements', () => {
     expect(wrapper.find(Link)).toHaveLength(3)
