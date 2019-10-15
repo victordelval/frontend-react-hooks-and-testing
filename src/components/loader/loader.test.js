@@ -15,6 +15,10 @@ describe('<Loader />', () => {
     wrapper = shallow(<Loader />)
   })
 
+  it("renders correctly", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should default to the bigger one if type prop is not provided', () => {
     expect(wrapper.find(CircularProgress)).toHaveLength(1)
     expect(wrapper.find(CircularProgress).props().size).toEqual(60)
