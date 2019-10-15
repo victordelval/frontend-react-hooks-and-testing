@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { useData } from "../../data/data";
 import Loader from "../loader/loader";
+import { AppConfig } from "../../utils/config";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -60,12 +61,12 @@ function Header() {
         </Typography>
         <nav>
           {loading && <Loader type={"header"} />}
-          <NavLink to="/schedules-by-professor">
+          <NavLink to={AppConfig.routes.subjectProfessor}>
             <Button color="primary" className={classes.link}>
               By Professor
             </Button>
           </NavLink>
-          <NavLink to="/schedules-by-subject">
+          <NavLink to={AppConfig.routes.otherProfessors}>
             <Button color="primary" className={classes.link}>
               By Subject
             </Button>

@@ -5,6 +5,8 @@ import Adapter from "enzyme-adapter-react-16";
 import Header from "./header";
 import { Link, MemoryRouter } from "react-router-dom";
 
+import { AppConfig } from "../../utils/config";
+
 configure({ adapter: new Adapter() });
 
 describe("<Header />", () => {
@@ -30,15 +32,15 @@ describe("<Header />", () => {
     expect(wrapper.findWhere(link => link.prop("to") === "/")).toHaveLength(1);
   });
 
-  it('should render one router <Link /> to "/schedules-by-professor"', () => {
+  it('should render one router <Link /> to subject professor page', () => {
     expect(
-      wrapper.findWhere(link => link.prop("to") === "/schedules-by-professor")
+      wrapper.findWhere(link => link.prop("to") === AppConfig.routes.subjectProfessor)
     ).toHaveLength(1);
   });
 
-  it('should render one router <Link /> to "/schedules-by-subject"', () => {
+  it('should render one router <Link /> to other professors page', () => {
     expect(
-      wrapper.findWhere(link => link.prop("to") === "/schedules-by-subject")
+      wrapper.findWhere(link => link.prop("to") === AppConfig.routes.otherProfessors)
     ).toHaveLength(1);
   });
 });

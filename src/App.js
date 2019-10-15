@@ -7,13 +7,15 @@ import Professor from "./pages/professor/professor";
 import Subject from "./pages/subject/subject";
 import NotFound from "./pages/notFound/notFound";
 
+import { AppConfig } from "./utils/config";
+
 function App() {
   return (
     <Layout>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/schedules-by-professor" component={Professor} />
-        <Route path="/schedules-by-subject" component={Subject} />
+        <Route path={AppConfig.routes.subjectProfessor} component={Professor} />
+        <Route path={AppConfig.routes.otherProfessors} component={Subject} />
         <Route path="*">
           <NotFound />
         </Route>

@@ -28,17 +28,17 @@ describe("<App />", () => {
     );
   });
 
-  it('should render one router <Route /> to path "/schedules-by-professor"', () => {
+  it('should render one router <Route /> to path "/profesor-asignatura"', () => {
     expect(
       wrapper.findWhere(
-        route => route.prop("path") === "/schedules-by-professor"
+        route => route.prop("path") === "/profesor-asignatura"
       )
     ).toHaveLength(1);
   });
 
-  it('should render one router <Route /> to path "/schedules-by-subject"', () => {
+  it('should render one router <Route /> to path "/otros-profesores"', () => {
     expect(
-      wrapper.findWhere(route => route.prop("path") === "/schedules-by-subject")
+      wrapper.findWhere(route => route.prop("path") === "/otros-profesores")
     ).toHaveLength(1);
   });
 
@@ -58,9 +58,9 @@ describe("<App />", () => {
     expect(component.find(NotFound)).toHaveLength(0);
   });
 
-  it('should render <Professor /> when navigating to path "/schedules-by-professor"', () => {
+  it('should render <Professor /> when navigating to path "/profesor-asignatura"', () => {
     const component = mount(
-      <MemoryRouter initialEntries={["/schedules-by-professor"]}>
+      <MemoryRouter initialEntries={["/profesor-asignatura"]}>
         <App />
       </MemoryRouter>
     );
@@ -70,9 +70,9 @@ describe("<App />", () => {
     expect(component.find(Home)).toHaveLength(0);
   });
 
-  it('should render <Subject /> when navigating to path "/schedules-by-subject"', () => {
+  it('should render <Subject /> when navigating to path "/otros-profesores"', () => {
     const component = mount(
-      <MemoryRouter initialEntries={["/schedules-by-subject"]}>
+      <MemoryRouter initialEntries={["/otros-profesores"]}>
         <App />
       </MemoryRouter>
     );
@@ -94,11 +94,11 @@ describe("<App />", () => {
   //   expect(wrapper.findWhere(link => link.prop('to') === '/')).toHaveLength(1)
   // })
 
-  // it('should render one router <Link /> to "/schedules-by-professor"', () => {
-  //   expect(wrapper.findWhere(link => link.prop('to') === '/schedules-by-professor')).toHaveLength(1)
+  // it('should render one router <Link /> to "/profesor-asignatura"', () => {
+  //   expect(wrapper.findWhere(link => link.prop('to') === '/profesor-asignatura')).toHaveLength(1)
   // })
 
-  // it('should render one router <Link /> to "/schedules-by-subject"', () => {
-  //   expect(wrapper.findWhere(link => link.prop('to') === '/schedules-by-subject')).toHaveLength(1)
+  // it('should render one router <Link /> to "/otros-profesores"', () => {
+  //   expect(wrapper.findWhere(link => link.prop('to') === '/otros-profesores')).toHaveLength(1)
   // })
 });

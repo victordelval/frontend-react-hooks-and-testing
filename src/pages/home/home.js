@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 import LinkCard from "../../components/linkCard/linkCard";
+import { AppConfig } from "../../utils/config";
 
 const useStyles = makeStyles(theme => ({
   lighter: {
@@ -47,7 +48,7 @@ function Home() {
         <Grid container spacing={5} alignItems="flex-end">
           <Grid item key={"Search by professor"} xs={12} sm={6} md={6}>
             <LinkCard
-              to="/schedules-by-professor"
+              to={AppConfig.routes.subjectProfessor}
               title={"By Professor"}
               body={
                 "Select the professor of the subject to see its availability"
@@ -56,7 +57,7 @@ function Home() {
           </Grid>
           <Grid item key={"Search by subject"} xs={12} sm={6} md={6}>
             <LinkCard
-              to="/schedules-by-subject"
+              to={AppConfig.routes.otherProfessors}
               title={"By Subject"}
               body={
                 "Select a subject to see the availability of support professors"
