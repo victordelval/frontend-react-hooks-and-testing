@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Subject() {
+function OtherProfessors() {
   const classes = useStyles();
   const { subjects, loading, getSupportProffessors, getProfessorArea } = useData() || false;
   const [subject, setSubject] = useState(null);
@@ -118,4 +118,4 @@ function Subject() {
   );
 }
 
-export default Subject;
+export default OtherProfessors;
