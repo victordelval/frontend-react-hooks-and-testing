@@ -7,8 +7,7 @@ import Container from "@material-ui/core/Container";
 import { useData } from "../../data/data";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-// import Error from './error'
-// import Loader from './loader'
+import Error from '../error/error'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,9 +30,7 @@ function Layout({ children }) {
       <CssBaseline />
       <Header />
       <Container component="main" className={classes.main} maxWidth="sm">
-        {/* {loading ? <Loader /> : children} */}
-        {/* {error ? <Error /> : children} */}
-        {children}
+        {error ? <Error msg={error} /> : children}
       </Container>
       <Footer />
     </div>
