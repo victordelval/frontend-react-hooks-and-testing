@@ -6,7 +6,7 @@ import { Route, MemoryRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/home/home";
 import Professor from "./pages/professor/professor";
-import Subject from "./pages/subject/subject";
+import OtherProfessors from "./pages/otherProfessors/otherProfessors";
 import NotFound from "./pages/notFound/notFound";
 
 configure({ adapter: new Adapter() });
@@ -54,7 +54,7 @@ describe("<App />", () => {
     // console.log(component.find(Home).props())
     expect(component.find(Home)).toHaveLength(1);
     expect(component.find(Professor)).toHaveLength(0);
-    expect(component.find(Subject)).toHaveLength(0);
+    expect(component.find(OtherProfessors)).toHaveLength(0);
     expect(component.find(NotFound)).toHaveLength(0);
   });
 
@@ -70,13 +70,13 @@ describe("<App />", () => {
     expect(component.find(Home)).toHaveLength(0);
   });
 
-  it('should render <Subject /> when navigating to path "/otros-profesores"', () => {
+  it('should render <OtherProfessors /> when navigating to path "/otros-profesores"', () => {
     const component = mount(
       <MemoryRouter initialEntries={["/otros-profesores"]}>
         <App />
       </MemoryRouter>
     );
-    expect(component.find(Subject)).toHaveLength(1);
+    expect(component.find(OtherProfessors)).toHaveLength(1);
     expect(component.find(Home)).toHaveLength(0);
   });
 
