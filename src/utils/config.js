@@ -28,5 +28,8 @@ export const AppConfig = {
     otherProfessors: {
       title: "Selecciona una asignatura para ver la disponibilidad de otros profesores"
     }
+  },
+  loader: {
+    text: "Cargando..."
   }
 };

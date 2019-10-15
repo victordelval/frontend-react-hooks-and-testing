@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import PeopleAlt from "@material-ui/icons/PeopleAlt";
+import grey from "@material-ui/core/colors/grey";
 
 import { useData } from "../../data/data";
 import Loader from "../loader/loader";
@@ -32,11 +34,16 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap"
   },
   toolbarTitle: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   link: {
     margin: theme.spacing(1, 1.5),
-    color: "initial"
+    color: grey[900]
+    // color: "initial"
+  },
+  icon: {
+    marginRight: 10,
+    color: grey[900]
   }
 }));
 
@@ -51,13 +58,16 @@ function Header() {
       className={classes.appBar}
     >
       <Toolbar className={classes.toolbar}>
+        {/* <PeopleAlt className={classes.icon} />  */}
         <Typography
           variant="h5"
           color="inherit"
           noWrap
           className={classes.toolbarTitle}
         >
-          <NavLink to="/">{AppConfig.appName}</NavLink>
+          <NavLink to="/" className={classes.link}>
+            {AppConfig.appName}
+          </NavLink>
         </Typography>
         <nav>
           {loading && <Loader type={"header"} />}

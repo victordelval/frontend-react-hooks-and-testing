@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 700
   },
   slimCell: {
-    padding: "3px 24px 3px 16px"
+    padding: "1px 24px 1px 16px"
   }
 }));
 

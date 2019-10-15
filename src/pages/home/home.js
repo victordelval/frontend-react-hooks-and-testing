@@ -4,14 +4,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import grey from "@material-ui/core/colors/grey";
 
 import LinkCard from "../../components/linkCard/linkCard";
 import { AppConfig } from "../../utils/config";
 
 const useStyles = makeStyles(theme => ({
+  title: {
+    fontWeight: "lighter",
+    color: grey[800]
+  },
   lighter: {
     fontWeight: "lighter"
-  }
+  },
 }));
 
 function Home() {
@@ -24,7 +29,7 @@ function Home() {
         variant="h2"
         align="center"
         color="textPrimary"
-        className={classes.lighter}
+        className={classes.title}
         gutterBottom
       >
         {AppConfig.pages.home.title}
