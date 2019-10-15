@@ -48,6 +48,14 @@ const TimetableSelectedCell = withStyles(theme => ({
   }
 }))(TableCell);
 
+const TimetableSelectedNotAvailableCell = withStyles(theme => ({
+  body: {
+    backgroundColor: pink[100],
+    color: "white"
+    // border: '1px solid white'
+  }
+}))(TableCell);
+
 const TimetableRow = withStyles(theme => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -78,6 +86,11 @@ function Timetable({ schedules, namedSlots, onlyToday }) {
     return [weekDay[today.getDay()]]
   }
 
+  function availableFromNow(hour) {
+    var today = new Date();
+    return today.getHours() <= hour;
+  }
+
   const dataDays = !onlyToday ? weekDays : getTodayConfig()
   return (
     <Paper className={classes.root} elevation={0}>
@@ -106,20 +119,32 @@ function Timetable({ schedules, namedSlots, onlyToday }) {
               {dataDays.map(day => {
                 let professor;
                 const checkDaySlot = schedules[day].some(slot => {
-                  const check = slot.to === hour;
+                  const check = slot.from === hour;
                   if (check) professor = slot.professor;
                   return check;
                 });
                 if (checkDaySlot) {
-                  return (
-                    <TimetableSelectedCell
-                      key={`${day}-${hour}`}
-                      className={classes.slimCell}
-                      align="center"
-                    >
-                      {namedSlots && <small>{professor}</small>}
-                    </TimetableSelectedCell>
-                  );
+                  if (onlyToday && !availableFromNow(hour)) {
+                    return (
+                      <TimetableSelectedNotAvailableCell
+                        key={`${day}-${hour}`}
+                        className={classes.slimCell}
+                        align="center"
+                      >
+                        {namedSlots && <small>{professor}</small>}
+                      </TimetableSelectedNotAvailableCell>
+                    );
+                  } else {
+                    return (
+                      <TimetableSelectedCell
+                        key={`${day}-${hour}`}
+                        className={classes.slimCell}
+                        align="center"
+                      >
+                        {namedSlots && <small>{professor}</small>}
+                      </TimetableSelectedCell>
+                    );
+                  }
                 } else {
                   return (
                     <TableCell
