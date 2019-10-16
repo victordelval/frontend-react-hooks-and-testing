@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as NavLink } from "react-router-dom";
+import { Link as NavLink, useLocation } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import PeopleAlt from "@material-ui/icons/PeopleAlt";
 import grey from "@material-ui/core/colors/grey";
+import lime from "@material-ui/core/colors/lime";
 
 import { useData } from "../../data/data";
 import Loader from "../loader/loader";
@@ -41,6 +42,14 @@ const useStyles = makeStyles(theme => ({
     color: grey[900]
     // color: "initial"
   },
+  active: {
+    margin: theme.spacing(1, 1.5),
+    color: 'white',
+    backgroundColor: lime[600],
+    '&:hover': {
+      backgroundColor: lime[600],
+    },
+  },
   icon: {
     marginRight: 10,
     color: grey[900]
@@ -50,6 +59,8 @@ const useStyles = makeStyles(theme => ({
 function Header() {
   const classes = useStyles();
   const { loading } = useData() || false;
+  const pathname = useLocation().pathname;
+
   return (
     <AppBar
       position="static"
@@ -72,17 +83,17 @@ function Header() {
         <nav>
           {loading && <Loader type={"header"} />}
           <NavLink to={AppConfig.routes.subjectProfessor}>
-            <Button color="primary" className={classes.link}>
+            <Button color="primary" className={pathname === AppConfig.routes.subjectProfessor ? classes.active : classes.link}>
               {AppConfig.header.linkToSubjectProfessor}
             </Button>
           </NavLink>
           <NavLink to={AppConfig.routes.otherProfessors}>
-            <Button color="primary" className={classes.link}>
+            <Button color="primary" className={pathname === AppConfig.routes.otherProfessors ? classes.active : classes.link}>
               {AppConfig.header.linkToOtherProfessors}            
             </Button>
           </NavLink>
           <NavLink to={AppConfig.routes.availableToday}>
-            <Button color="primary" className={classes.link}>
+            <Button color="primary" className={pathname === AppConfig.routes.availableToday ? classes.active : classes.link}>
               {AppConfig.header.linkToAvailableToday}            
             </Button>
           </NavLink>
