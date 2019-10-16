@@ -2,7 +2,29 @@
 
 Víctor del Val Andrés
 
-## Resumen del ejercicio
+**Índice de contenidos**
+* [Overview](#overview)
+* [Resumen del enunciado](#resumen-del-enunciado)
+* [Desarrollo del ejercicio](#desarrollo-del-ejercicio)
+  * [Planteamiento inicial](#planteamiento-inicial)
+  * [Reto 1](#reto-1)
+  * [Reto 2](#reto-2)
+  * [Reto 3](#reto-3)
+* [Observaciones y mejoras](#observaciones-y-mejoras)
+
+
+## Overview
+
+Para la puesta en marcha de la aplicación:
+
+1. Primero hay que instalar las dependencias del proyecto (`npm install`)
+
+1. Después hay que inicializar, desde dos sesiones de la interfaz de línea de comandos, tanto la aplicación frontend (`npm start`) como el servidor json-server (`npm run server`)
+
+1. Comprueba que los tests pasan correctamente (`npm test`)
+
+
+## Resumen del enunciado
 
 ### Escenario 
 
@@ -66,13 +88,23 @@ Implementar una única propuesta, tanto propia como de las propuestas por los al
 
 ### Planteamiento inicial
 
+#### Enfoque
+
+Para la realización del ejercicio se ha tenido en cuenta los siguientes criterios:
+* Proceso ágil, tipo iterativo e incremental
+* Soluciones sencillas
+* Buenas prácticas
+* Tests
+
+#### Tecnologia 
+
 El ejercicio lo voy a resolver utilizando React, por varios motivos:
 * Tecnología de primera para contruir interfaces web
-* Interfaces móviles con React Native
 * Gran experiencia del desarrollador
 * Gran adopción en la industria
+* Plataforma móvil con React Native
 
-Voy a utilizar las técnicas novedosas de React (ContextAPi y los Hooks) que tienden hacia un desarrollo más eficiente mediante componentes únicamente de tipo funcional y gestión del estado (sin componentes de tipo clase, ni Redux para gestionar el estado de la SPA).
+Voy a utilizar las técnicas novedosas de React (Hooks y Context API) que tienden hacia un desarrollo más eficiente mediante componentes únicamente de tipo funcional y gestión del estado (sin componentes de tipo clase, ni Redux para gestionar el estado de la SPA).
 
 
 ### Reto 1
@@ -94,6 +126,8 @@ Se propone la siguiente estructura de datos para satisfacer los requrimientos de
     {
       "id": 1,
       "name": "John Doe",
+      "office": "B101",
+      "area": "Lenguajes de programación",
       "schedules": {
         "lunes": [
           { "from": "10", "to": "11" }
@@ -110,9 +144,7 @@ Se propone la siguiente estructura de datos para satisfacer los requrimientos de
         "viernes": [
           { "from": "10", "to": "11" }
         ]
-      },
-      "office": "B101",
-      "area": "Lenguajes de programación"
+      }
     }
   ]
 
@@ -126,28 +158,114 @@ Se propone la siguiente estructura de datos para satisfacer los requrimientos de
 
 ```
 
-Los datos para levantar la API REST de desarrollo: 
-* `api/db.json`
-
-El servidor se inicializa con:
-* `npm run api`
 
 
-### Reto 
+### Reto 2
 
-Para el desarrollo del cliente web se van a utilizar las siguientes librerías:
-* React
-* React DOM
-* React Router DOM
-* Axios
-* Material UI
+Para el desarrollo del cliente web se van a utilizar las siguientes librerías, principalmente entorno a React:
+* **React** (JavaScript library for building user interfaces)
+* **React DOM** (React package for working with the DOM)
+* **React Router DOM** (Declarative routing for React and DOM bindings for React Router)
+* **PropTypes** (Runtime type checking for React props and similar objects)
+* **Axios** (Promise based HTTP client for the browser and node.js)
+* **Material UI** (React components that implement Google's Material Design)
+
+Las tecnologías selecionadas representan la vanguardía en tecnología de desarrollo Frontend y permiten desarrollar eficientemente tanto aplicaciones grandes para producción como prototipos pequeños y PoC.
+
+El punto de partida del desarrollo ha sido inicializar el proyecto de aplicación React con la utilidad `create-react-app`, que preconfigura varias herramientas como Webpack y Jest.
+
+Material Ui facilita el prototipado al disponer de componentes con un estilo base avanzado y totalmente adaptable y extensible. Además, permite el desarrollo de interfaces responsive, adaptables para diferentes tamaños de dispositivo.
+
+Para la implementación de la solución se ha seguido un desarrollo iterativo e incremental, trantando de resolver de forma sencilla, primero paso a paso las funcionalidades principales (previo análisis y prediseño), luego los detalles, los estilos, refactorización, etc.
+
+La solución planteada consiste en una pequeña aplicación SPA con 4 páginas (y la 404 para las rutas no encontradas):
+* Home (`/`)
+* Professor (`/profesor-asignatura`)
+* Otros profesores (`/otros-profesores`)
+* Horarios hoy (`/disponible-hoy`)
+
+La aplicación presenta un pequeño estado global compartido por las páginas, en lo relativo a los datos (profesores y asignaturas). Para gestionar el estado se emplean Hooks y la Context APi, en el módulo `data/data.js`.
+
+De esta forma, cuando se carga la aplicación inicialmente, se solicitan los datos al backend por parte de este módulo `data.js` que representa la capa de datos de la aplicación. La petición y respuesta se gestiona con el cliente http Axios.
+
+
 
 La estructura del proyecto es la siguiente:
 ```
 src/
-  components/          # atomic ui components
-  pages/               # main view or containers
-  utils/               # utilities and auxiliar
-  App.js               # global component
-  index.js             # init
+    components/          # atomic ui components
+        author/*
+        error/*
+        footer/*
+        header/*
+        layout/*
+        linkCard/*
+        loader/*
+        selector/*
+        timetable/*
+    data/                # data layer (hooks and context)
+        data.js
+    pages/               # main view or containers
+        availableToday/*
+        home/*
+        notFound/*
+        otherProfessors/*
+        professor/*
+    utils/               # auxiliar functions and app config
+        api.js
+        config.js
+    App.js               # global component
+    index.js             # init
 ```
+
+Los componentes de tipo 'component' y 'pages' tiene la siguiente estructura, donde aparece el fichero del componente, el fichero de la batería de pruebas unitarias con Jest y Enzyme, y un directorio `__snapshots__` donde se guarda el resultado de la última renderización exitosa.
+
+```
+components/
+    loader/
+        __snapshots__/
+            loader.test.js.snap
+        loader.js
+        loader.test.js
+```
+
+
+El proceso de desarrollo a grandes rasgos ha sido el siguiente:
+
+* Bases de la aplicación (layout, páginas, navegación)
+
+* Capa de datos para gestionar los datos de los profesores y asignaturas como estado global, mediantes hooks y petición a servidor externo.
+
+* Página correspondiente al profesor de la asignatura y visualización de la disponibilidad semanal en forma de tabla con el componente Timetable.
+
+* Página correspondiente a los otros profesores correpondientes al área de conocimiento del tutor de la asignatura. Preparación de los datos de los profesores adicionales. Extensión del componente Timetable para contemplar este tipo de representación, que muestra el nombre del profesor en la tabla para distinguir las sesiones.
+
+* Desarrollo de pruebas unitarias con Jest y Enzyme. Todos los componentes llevan al menos un test de renderizado mediante snapshots. Otros componentes presentan pruebas para varios aspectos de relevancia. Otros componentes de relevancia quedan pendientes de escribir los tests correspondientes.
+
+* Refactorización y mejora de algunos aspectos generales, como por ejemplo
+  * estructura de componentes autocontenidos en carpetas propias con test y snapshot, 
+  * metadata de la app y contenidos estáticos a `utils/config`
+  * Estilo y diseño gráfico de la UI
+
+
+### Reto 3
+
+Se ha optado por la realización de la primera propuesta dada la utilidad desde el punto de vista del usuario. Además permite reutilizar el componente `Timetable` que requiere ampliar su lógica para variar los contenidos representados (el día actual, diferenciando las sesiones ya pasadas y las disponibles por profesor)
+
+
+## Observaciones y mejoras
+
+### Desde el punto de vista del desarrollo
+
+* Refactorizar el componente Timetable (subcomponentes y variantes de renderización)
+
+* Terminar los test unitarios de las principales funcionalidades de la aplicación
+
+* Tipado de las propiedades de los componentes con PropTypes
+
+* Refactorización de los estilos de la aplicación con la creación de un tema propio en Material UI (custom theme)
+
+### Desde el punto de vista del usuario
+
+* Visualización complementaria de horarios como listas
+* Recordatorio de sesión de interés
