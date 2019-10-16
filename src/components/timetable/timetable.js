@@ -44,7 +44,7 @@ const TimetableSelectedCell = withStyles(theme => ({
   body: {
     backgroundColor: pink[400],
     color: "white",
-    border: '1px solid white'
+    // border: '1px solid white'
   }
 }))(TableCell);
 
