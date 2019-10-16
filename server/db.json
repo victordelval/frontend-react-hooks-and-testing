@@ -141,6 +141,29 @@
       },
       "office": "A213",
       "area": "Análisis de la información"
+    },
+    {
+      "id": 7,
+      "name": "Ricardo Saez",
+      "schedules": {
+        "lunes": [
+          { "from": "9", "to": "10" }
+        ],
+        "martes": [
+          { "from": "9", "to": "10" }
+        ],
+        "miércoles": [
+          { "from": "9", "to": "10" }
+        ],
+        "jueves": [
+          { "from": "9", "to": "10" }
+        ],
+        "viernes": [
+          { "from": "9", "to": "10" }
+        ]
+      },
+      "office": "B201",
+      "area": "Lenguajes de programación"
     }
   ],
 
